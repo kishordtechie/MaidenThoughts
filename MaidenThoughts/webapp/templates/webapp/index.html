@@ -1,0 +1,55 @@
+
+{% extends 'webapp/base.html'%}
+{% block navigation %}
+<div class="navigation">
+      <ul class="first">
+        <li class="first"><a href="jewelry.html">ON SALE</a></li>
+        <li><a href="accessories.html">BEST SELLERS</a></li>
+        <li class="selected"><a href="blog.html">THE BLOG</a></li>
+      </ul>
+      <ul>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="shoes.html">My Collection</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
+{% endblock %}
+{% block blog_content%}
+   <div class="blog">
+{% if articles %}
+			{% for article in articles %}
+    
+	<div>
+	        
+    <div class="stats">
+	      <div class="date"><span>{{ article.published_on }}</span></div>
+		  
+          <div class="share"> <a href="#" id="tweets"></a> <a href="#" id="heart"></a> <a href="#" id="likes"></a> </div>
+        </div>
+        <div>
+          <h1>{{ article.header }}</h1>
+          <h2>{{ article.author }}</h2>
+          <p>{{ article.content | safe}}</p>
+        </div>
+	  </div>
+	  	{% endfor%}
+	{% endif %}
+    
+      <div class="paging"> <a href="#">previous</a>
+        <div>
+          <ul>
+            <li class="selected"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li>...</li>
+            <li><a href="#">34</a></li>
+          </ul>
+          <a href="#">next</a> </div>
+      </div>
+    </div>
+	{% endblock %}
